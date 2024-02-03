@@ -12,9 +12,8 @@
 
 .logo-title {
     color: #000000;
-    font-family: 'MuseoSans500', sans-serif; /* Apply the custom font */
+    font-family: 'MuseoSans500', sans-serif;
     font-size: 2rem;
-    padding: 20px;
 }
 
 .transparent {

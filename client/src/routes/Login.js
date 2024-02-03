@@ -31,11 +31,11 @@ function Login() {
     return (
         <div>
             <AppBar />
-            <div className="form">
-                <ScramblingText text="Login" />
-                <form onSubmit={handleSubmit}>
+            <div className="login">
+                <ScramblingText text="Login to Learn4Ward" />
+                <form onSubmit={handleSubmit} className="form">
                     <label>
-                        Username:
+                        Username
                         <input
                             type="text"
                             name="username"
@@ -43,9 +43,8 @@ function Login() {
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label>
-                        Password:
+                        Password
                         <input
                             type="password"
                             name="password"
@@ -53,8 +52,7 @@ function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>
-                    <br />
-                    <button type="submit">Login</button>
+                    <button type="submit">LOGIN</button>
                 </form>
             </div>
         </div>

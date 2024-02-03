@@ -32,20 +32,18 @@ function Signup() {
     return (
         <div>
             <AppBar />
-            <div className="form">
-                <ScramblingText text="Sign up for Learn4Ward" />
-                <form onSubmit={handleSubmit}>
+            <div className="login">
+                <ScramblingText text="Sign up 4 Learn4Ward" />
+                <form onSubmit={handleSubmit} className="form">
                     <label>
-                        Username:
+                        Username 
                         <input type="text" name="username" />
                     </label>
-                    <br />
                     <label>
-                        Password:
+                        Password
                         <input type="password" name="password" />
                     </label>
-                    <br />
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">SIGN UP</button>
                 </form>
             </div>
         </div>

@@ -9,8 +9,8 @@ const SignupLoginButtons = styled(Button)(({ theme }) => ({
   backgroundColor: 'transparent',
   border: 'none',
   borderRadius: '1',
-  fontSize: '19px', // Adjust the font size as needed
-  fontFamily: 'YourCustomFont, sans-serif', // Change 'YourCustomFont' to your custom font
+  fontSize: '19px',
+  fontFamily: 'sans-serif',
   boxShadow: 'none',
   padding: '10px',
   '&:hover': {
