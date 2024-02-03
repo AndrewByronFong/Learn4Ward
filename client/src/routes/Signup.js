@@ -1,5 +1,7 @@
 import React from "react";
 import AppBar from '../components/ResponsiveAppbar';
+import ScramblingText from "../components/ScramblingTitle";
+import '../styles/Signup.css'
 import axios from 'axios';
 
 function Signup() {
@@ -30,20 +32,22 @@ function Signup() {
     return (
         <div>
             <AppBar />
-            <h2>Signup</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input type="text" name="username" />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input type="password" name="password" />
-                </label>
-                <br />
-                <button type="submit">Sign Up</button>
-            </form>
+            <div className="form">
+                <ScramblingText text="Sign up for Learn4Ward" />
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Username:
+                        <input type="text" name="username" />
+                    </label>
+                    <br />
+                    <label>
+                        Password:
+                        <input type="password" name="password" />
+                    </label>
+                    <br />
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
         </div>
     );
 }
