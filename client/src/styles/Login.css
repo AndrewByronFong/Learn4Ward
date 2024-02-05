@@ -12,6 +12,10 @@
     gap: 20px;
 }
 
+h1 {
+    font-family: 'MuseoSans500', sans-serif;
+}
+
 label {
     display: flex;
     flex-direction: column;

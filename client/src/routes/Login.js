@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AppBar from '../components/ResponsiveAppbar';
-import ScramblingText from "../components/ScramblingTitle";
 import '../styles/Login.css'
 import axios from 'axios';
 
@@ -32,7 +31,7 @@ function Login() {
         <div>
             <AppBar />
             <div className="login">
-                <ScramblingText text="Login to Learn4Ward" />
+                <h1>Login to Learn4Ward</h1>
                 <form onSubmit={handleSubmit} className="form">
                     <label>
                         Username
