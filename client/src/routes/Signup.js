@@ -11,7 +11,7 @@ function Signup() {
         const password = new form_data.get("password");
 
         try {
-            const response = await axios.post('http://localhost:5000/signup', {
+            const response = await axios.post('http://localhost:6000/signup', {
                 username,
                 password,
             });

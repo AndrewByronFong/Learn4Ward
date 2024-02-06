@@ -1,13 +1,19 @@
+import React, { useState } from 'react';
 import AppBar from '../components/ResponsiveAppbar';
 import PhonemBoard from '../components/PhonemBoard';
 import '../styles/Dashboard.css';
 
-
 function Dashboard() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <>
       <div className="Home">
-        <AppBar />
+        <AppBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
         <PhonemBoard />
       </div>
     </>
