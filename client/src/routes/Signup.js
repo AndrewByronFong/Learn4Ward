@@ -15,7 +15,6 @@ function Signup() {
                 username,
                 password,
             });
-
             if (response.status === 200) {
                 console.log('Signup successful!');
             }

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/components/PhonemButton.css';
 
-const SoundButton = ({ label, soundFile }) => {
+const PhonemButton = ({ label, soundFile }) => {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setExpanded(true);
@@ -12,12 +14,14 @@ const SoundButton = ({ label, soundFile }) => {
     setExpanded(false);
   };
 
+  const handleClick = () => {
+    navigate(`/module/${label}`, { state: { soundName: label } });
+  };
+
   return (
     <div
       className={`phonem-button ${expanded ? 'expanded' : ''}`}
-      onClick={() => {
-        setExpanded(!expanded);
-      }}
+      onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -26,4 +30,4 @@ const SoundButton = ({ label, soundFile }) => {
   );
 };
 
-export default SoundButton;
+export default PhonemButton;
