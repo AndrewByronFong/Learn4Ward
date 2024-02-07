@@ -1,0 +1,35 @@
+/* GraphemeModule.css */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.left-side {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.video-feed {
+  width: 100%;
+  height: auto;
+}
+
+.right-side {
+  flex: 1;
+  padding: 20px;
+  background-color: #e0e0e0;
+}
+
+.app__input {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}

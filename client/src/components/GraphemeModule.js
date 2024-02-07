@@ -1,41 +1,54 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
+import Webcam from "react-webcam";
+import "../styles/components/GraphemeModule.css";
 
 const GraphemeModule = () => {
-  const [audio] = useState(new Audio());
+  const [stream, setStream] = useState(null);
+  const webcamRef = useRef(null);
   const { soundName } = useParams();
 
   useEffect(() => {
-    const soundFilePath = getSoundFilePath(soundName);
-    audio.src = soundFilePath;
+    const initializeWebcam = async () => {
+      try {
+        const userStream = await navigator.mediaDevices.getUserMedia({ video: true });
+        setStream(userStream);
+      } catch (error) {
+        console.error("Error accessing webcam:", error);
+      }
+    };
+
+    if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+      initializeWebcam();
+    }
 
     return () => {
-      audio.pause();
-      audio.currentTime = 0;
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
     };
-  }, [audio, soundName]);
+  }, [stream]);
 
   const playSound = () => {
-    audio.play();
-  };
-
-  const getSoundFilePath = (name) => {
-    const soundLibrary = {
-      A: "/path/to/sound_A.mp3",
-      B: "/path/to/sound_B.mp3",
-      // Add more entries as needed
-    };
-
-    return soundLibrary[name] || "";
+    // Your existing playSound function
   };
 
   return (
-    <div>
-      <h2>{`Module for sound ${soundName}`}</h2>
-      <p>Additional content goes here</p>
-      <button onClick={playSound}>
-        Play Sound {soundName}
-      </button>
+    <div className="container">
+      {stream && (
+        <div className="left-side">
+          <Webcam
+            style={{ width: "500px", height: "500px" }}
+            ref={webcamRef}
+          />
+        </div>
+      )}
+
+      <div className="right-side">
+        <h2>{`Module for sound ${soundName}`}</h2>
+        <p>Additional content goes here</p>
+        <button onClick={playSound}>Play Sound {soundName}</button>
+      </div>
     </div>
   );
 };
