@@ -1,6 +1,6 @@
-.Home {
+.home {
+  font-size: 21px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
 }

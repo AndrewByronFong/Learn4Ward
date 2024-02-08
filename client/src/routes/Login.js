@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from '../components/ResponsiveAppbar';
+import Button from '@mui/material/Button';
 import '../styles/Login.css';
 // uncomment axios when backend done
 //import axios from 'axios';
@@ -45,30 +46,37 @@ function Login() {
         <div>
             <AppBar />
             <div className="login">
-                <h1>Login to Learn4Ward</h1>
-                <form onSubmit={handleSubmit} className="form">
-                    <label>
-                        Username
-                        <input
-                            type="text"
-                            name="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        Password
-                        <input
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </label>
-                    <button type="submit">LOGIN</button>
+                <div className="background">
+                    <p className="header">Login to Learn4Ward</p>
+                    <form onSubmit={handleSubmit} className="form">
+                        <label>
+                            Username
+                            <input
+                                type="text"
+                                name="username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </label>
+                        <label>
+                            Password
+                            <input
+                                type="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </label>
+                        <Button
+                            style={{ color: 'black', fontSize: '1.2rem', fontFamily: 'LexendDeca'}}
+                            type="submit"
+                        >
+                            LOGIN
+                        </Button>
 
-                    {error && <p className="error-message">{error}</p>}
-                </form>
+                        {error && <p className="error-message">{error}</p>}
+                    </form>
+                </div>
             </div>
         </div>
     );

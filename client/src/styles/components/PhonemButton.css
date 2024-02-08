@@ -1,20 +1,18 @@
-/* PhonemButton.css */
-
 .phonem-button {
   position: absolute;
-  width: 50px; /* Make the buttons bigger */
-  height: 50px; /* Make the buttons bigger */
-  background-color: #4caf50; /* Modern green color */
+  width: 50px;
+  height: 50px;
+  background-color: #aaddac;
   border-radius: 50%;
   text-align: center;
-  line-height: 50px; /* Adjust based on button height */
+  line-height: 50px;
   color: #ffffff;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  font-size: 16px; /* Adjust based on button size */
+  font-size: 16px;
 }
 
 .phonem-button:hover {
-  transform: scale(1.1); /* Mild expand on hover */
-  background-color: #45a049; /* Slightly darker green on hover */
+  transform: scale(1.1);
+  background-color: #45a049;
 }

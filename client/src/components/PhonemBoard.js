@@ -22,8 +22,8 @@ const Phonemboard = () => {
   useEffect(() => {
     const buttons = phonemData.map((data, index) => {
       const angle = (index / phonemData.length) * 2 * Math.PI;
-      const x = 200 * Math.cos(angle);
-      const y = 200 * Math.sin(angle);
+      const x = 500 * Math.cos(angle);
+      const y = 500 * Math.sin(angle);
 
       return (
         <PhonemButton

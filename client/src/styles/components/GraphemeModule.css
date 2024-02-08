@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
 }
 
 .left-side {
@@ -21,7 +20,7 @@
 .right-side {
   flex: 1;
   padding: 20px;
-  background-color: #e0e0e0;
+  background-color: #4caf50;
 }
 
 .app__input {

@@ -37,6 +37,7 @@ const GraphemeModule = () => {
   return (
     <>
       <AppBar showButtons={false} />
+
       <div className="container">
         {stream && (
           <div className="left-side">
@@ -48,10 +49,9 @@ const GraphemeModule = () => {
         )}
 
         <div className="right-side">
-          <h2>{`Module for sound ${soundName}`}</h2>
-          <p>Additional content goes here</p>
-          <button onClick={playSound}>Play Sound {soundName}</button>
+          <button onClick={playSound}>{soundName}</button>
         </div>
+
       </div>
     </>
   );

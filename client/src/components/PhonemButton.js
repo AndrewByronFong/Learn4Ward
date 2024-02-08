@@ -6,7 +6,7 @@ const PhonemButton = ({ label, soundFile, x, y }) => {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
   const phonemboard = {
-    transform: `translate(${x}px, ${y}px)`,
+    transform: `translate(${x}%, ${y}%)`,
   };
 
   const handleMouseEnter = () => {

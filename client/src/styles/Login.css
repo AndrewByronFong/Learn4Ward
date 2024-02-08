@@ -1,52 +1,37 @@
-.login {
+
+.background {
+    background-color: #aaddac;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    font-size: 14px;
 }
 
-h1 {
-    font-family: 'MuseoSans500', sans-serif;
+.header {
+    font-size: 30px;
+    margin-bottom: 10%;
 }
 
 label {
     display: flex;
     flex-direction: column;
     text-align: left;
-    font-family: 'MuseoSans500';
+    font-size: 21px;
 }
 
 input {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #f4f4f4;
-    border-radius: 1px;
-}
-
-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    margin-top: 10px;
+    border: 2px solid #f4f4f4;
     border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #45a049;
 }
 
 .error-message {
     color: #ff0000;
-    font-family: 'MuseoSans500', sans-serif;
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 21px;
+    margin-top: 10px;
 }
