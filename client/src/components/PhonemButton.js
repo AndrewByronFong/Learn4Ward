@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/components/PhonemButton.css';
 
-const PhonemButton = ({ label, soundFile }) => {
+const PhonemButton = ({ label, soundFile, x, y }) => {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
+  const phonemboard = {
+    transform: `translate(${x}px, ${y}px)`,
+  };
 
   const handleMouseEnter = () => {
     setExpanded(true);
@@ -24,6 +27,7 @@ const PhonemButton = ({ label, soundFile }) => {
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={phonemboard}
     >
       {label}
     </div>

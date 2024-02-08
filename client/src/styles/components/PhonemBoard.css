@@ -1,10 +1,15 @@
+/* PhonemBoard.css */
+
 .phonem-board {
-    width: 300px;
-    height: 300px;
-    border: 2px solid #3498db;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: left;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Set a background color for better visibility */
+}
+
+#phonem-board {
+  position: relative;
+  width: 300px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+}
