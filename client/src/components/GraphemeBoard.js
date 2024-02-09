@@ -8,16 +8,16 @@ const GraphemeBoard = () => {
 
     // Hard-coded grapheme data, later use API call for this
     const graphemeData = useMemo(() => ({
-        B: { b: 'b.m4a', bb: 'bb.m4a' },
-        D: { d: 'd.m4a', dd: 'dd.m4a', ed: 'ed.m4a' },
-        F: { f: 'f.m4a', ff: 'ff.m4a', ph: 'ph.m4a', gh: 'gh.m4a', lf: 'lf.m4a', ft: 'ft.m4a' },
-        G: { g: 'g.m4a' },
-        K: { k: 'k.m4a', c: 'c.m4a', ch: 'ch.m4a', cc: 'cc.m4a', lk: 'lk.m4a', qu: 'qu.m4a', qu2: 'qu2.m4a', ck: 'ck.m4a', x: 'x.m4a' },
-        L: { l: 'l.m4a', ll: 'll.m4a' },
-        M: { m: 'm.m4a', mm: 'mm.m4a', mb: 'mb.m4a', mn: 'mn.m4a', lm: 'lm.m4a' },
-        N: { n: 'n.m4a', nn: 'nn.m4a', kn: 'kn.m4a', gn: 'gn.m4a', pm: 'pm.m4a', mn: 'mn.m4a' },
-        P: { p: 'p.m4a', pp: 'pp.m4a' },
-        R: { r: 'r.m4a', rr: 'rr.m4a', wr: 'wr.m4a', rh: 'rh.m4a' },
+        B: { b: 'B', bb: 'B' },
+        D: { d: 'D', dd: 'D', ed: 'D' },
+        F: { f: 'F', ff: 'F', ph: 'F', gh: 'F', lf: 'F', ft: 'F' },
+        G: { g: 'G' },
+        K: { k: 'K', c: 'K', ch: 'K', cc: 'K', lk: 'K', qu: 'K', qu2: 'K', ck: 'K', x: 'K' },
+        L: { l: 'L', ll: 'L' },
+        M: { m: 'M', mm: 'M', mb: 'M', mn: 'M', lm: 'M' },
+        N: { n: 'N', nn: 'N', kn: 'N', gn: 'N', pm: 'N', mn: 'N' },
+        P: { p: 'P', pp: 'P' },
+        R: { r: 'R', rr: 'R', wr: 'R', rh: 'R' },
     }), []);
 
     const [graphemeButtons, setGraphemeButtons] = useState([]);
