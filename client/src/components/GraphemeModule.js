@@ -26,7 +26,7 @@ const GraphemeModule = () => {
 
     const fetchAudio = async () => {
       const phonem = {soundFile};
-      const domain = '';
+      const domain = ''; // change this based on backend URL
       const endpoint = `${domain}/phonem/${phonem}`;
       try {
         const response = await axios.get(endpoint);
@@ -51,7 +51,7 @@ const GraphemeModule = () => {
         stream.getTracks().forEach((track) => track.stop());
       }
     };
-  }, [stream, soundFile]);
+  }, []);
 
   const startRecording = () => {
     const audioStream = stream.clone();
@@ -110,21 +110,18 @@ const GraphemeModule = () => {
   const base64toM4A = (base64encoding, contentType) => {
     const byteChar = atob(base64encoding);
     const byteArrays = [];
-
-    for (let offset = 0; offset < byteChar.length; offset += 512) {
-      const slice = byteChar.slice(offset, offset + 512);
-      const byteNum = new Array(slice.length);
-
-      for (let i = 0; i < slice.length; i++) {
-        byteNum[i] = slice.charCodeAt(i);
-      }
-
-      const byteArr = new Uint8Array(byteNum);
+  
+    for (let offset = 0; offset < byteChar.length; offset += 128) {
+      const slice = byteChar.slice(offset, offset + 128);
+      const byteArr = new Uint8Array(
+        Array.from(slice, char => char.charCodeAt(0))
+      );
       byteArrays.push(byteArr);
     }
-
-    return new Blob(byteArrays, {type: contentType });
+  
+    return new Blob(byteArrays, { type: contentType });
   };
+  
 
   return (
     <>
@@ -143,7 +140,7 @@ const GraphemeModule = () => {
         <div className="right-side">
           <button onClick={playSound}>{graphemeName}</button>
           <button onClick={recording ? stopRecording : startRecording}>
-            {recording ? 'Stop Recording' : 'Start Recording'}
+            {recording ? 'STOP RECORDING' : 'START RECORDING'}
           </button>
         </div>
       </div>

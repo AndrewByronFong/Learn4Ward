@@ -14,6 +14,7 @@ const PhonemBoard = () => {
     { label: 'N' },
     { label: 'P' },
     { label: 'R' },
+    { label: 'A' },
   ], []);
 
   const [phonemButtons, setPhonemButtons] = useState([]);

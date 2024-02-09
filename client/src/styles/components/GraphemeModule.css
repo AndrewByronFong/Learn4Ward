@@ -1,15 +1,15 @@
-/* GraphemeModule.css */
-
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
 }
 
 .left-side {
   flex: 1;
   padding: 20px;
-  background-color: #f0f0f0;
 }
 
 .video-feed {
@@ -20,7 +20,8 @@
 .right-side {
   flex: 1;
   padding: 20px;
-  background-color: #4caf50;
+  background: rgba(173, 221, 172, 0.5);
+  border-radius: 10px;
 }
 
 .app__input {
@@ -28,7 +29,17 @@
 }
 
 button {
-  padding: 10px;
+  padding: 12px 20px; /* Adjusted padding for a larger button */
   margin-right: 10px;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Green background color */
+  color: #fff; /* White text color */
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green color on hover */
 }

@@ -18,6 +18,7 @@ const GraphemeBoard = () => {
         N: { n: 'N', nn: 'N', kn: 'N', gn: 'N', pm: 'N', mn: 'N' },
         P: { p: 'P', pp: 'P' },
         R: { r: 'R', rr: 'R', wr: 'R', rh: 'R' },
+        A: { a: 'a'}
     }), []);
 
     const [graphemeButtons, setGraphemeButtons] = useState([]);

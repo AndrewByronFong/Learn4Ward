@@ -5,7 +5,12 @@ function Home() {
   return (
     <div className="home">
       <AppBar />
-      <p>AI for Dyslexia Education</p>
+      <div className="text">
+        <p className="header">Power Phonetics Learning With AI</p>
+        <p className="body">Designed for Dyslexia.</p>
+        <p className="body">Built for Anyone.</p>
+
+      </div>
     </div>
   );
 }
