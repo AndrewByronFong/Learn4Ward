@@ -1,4 +1,5 @@
-.dashboard-container {
+.phonemdashboard-container,
+.graphemedashboard-container {
     display: flex;
     flex-direction: row;
-  }
+}

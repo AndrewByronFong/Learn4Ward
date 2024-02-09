@@ -7,7 +7,7 @@ import "../styles/components/GraphemeModule.css";
 const GraphemeModule = () => {
   const [stream, setStream] = useState(null);
   const webcamRef = useRef(null);
-  const { soundName } = useParams();
+  const { graphemeName } = useParams();
 
   useEffect(() => {
     const initializeWebcam = async () => {
@@ -49,7 +49,7 @@ const GraphemeModule = () => {
         )}
 
         <div className="right-side">
-          <button onClick={playSound}>{soundName}</button>
+          <button onClick={playSound}>{graphemeName}</button>
         </div>
 
       </div>

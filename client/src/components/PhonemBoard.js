@@ -1,15 +1,19 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import '../styles/components/PhonemBoard.css'
 import PhonemButton from '../components/PhonemButton';
 
 const PhonemBoard = () => {
   const phonemData = useMemo(() => [
-    { label: 'A', soundFile: 'B.m4a' },
-    { label: 'B', soundFile: 'B.m4a' },
-    { label: 'C', soundFile: 'B.m4a' },
-    { label: 'D', soundFile: 'B.m4a' },
-    { label: 'E', soundFile: 'B.m4a' },
-    { label: 'F', soundFile: 'B.m4a' },
-    // Add more phonem data
+    { label: 'B' },
+    { label: 'D' },
+    { label: 'F' },
+    { label: 'G' },
+    { label: 'K' },
+    { label: 'L' },
+    { label: 'M' },
+    { label: 'N' },
+    { label: 'P' },
+    { label: 'R' },
   ], []);
 
   const [phonemButtons, setPhonemButtons] = useState([]);
@@ -17,13 +21,11 @@ const PhonemBoard = () => {
   useEffect(() => {
     const buttons = phonemData.map((data, index) => {
       const angle = (index / phonemData.length) * 2 * Math.PI;
-      const x = 100 * Math.cos(angle);
-      const y = 100 * Math.sin(angle);
-
+      const x = 400 * Math.cos(angle);
+      const y = 400 * Math.sin(angle)+700;
       return (
         <PhonemButton
-          label={data.label}
-          soundFile={data.soundFile}
+          phonemName={data.label}
           x={x}
           y={y}
         />

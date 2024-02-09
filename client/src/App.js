@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Signup from './routes/Signup';
 import Login from './routes/Login';
-import Dashboard from './routes/Dashboard';
 import Profile from './routes/Profile';
+import PhonemDashboard from './routes/PhonemDashboard';
+import GraphemeDashboard from './routes/GraphemeDashboard';
 import GraphemeModule from './components/GraphemeModule';
-import GraphemeBoard from './components/GraphemeBoard';
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile/:username' element={<Profile />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/phoneme/:phonemName' element={<GraphemeBoard />} />
+          <Route path='/phonemdashboard' element={<PhonemDashboard />} />
+          <Route path='/grapheme/:phonemName' element={<GraphemeDashboard />} />
           <Route path='/module/:graphemeName' element={<GraphemeModule />} />
         </Routes>
       </BrowserRouter>

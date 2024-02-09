@@ -1,0 +1,8 @@
+.grapheme-board {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+  }

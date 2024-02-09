@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/components/PhonemButton.css';
 
-const PhonemButton = ({ label, soundFile, x, y }) => {
+const PhonemButton = ({ phonemName, soundFile, x, y }) => {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
   const phonemboard = {
@@ -18,7 +18,7 @@ const PhonemButton = ({ label, soundFile, x, y }) => {
   };
 
   const handleClick = () => {
-    navigate(`/grapheme/${label}`, { state: { soundName: label } });
+    navigate(`/grapheme/${phonemName}`, { state: { soundName: phonemName } });
   };
 
   return (
@@ -29,7 +29,7 @@ const PhonemButton = ({ label, soundFile, x, y }) => {
       onMouseLeave={handleMouseLeave}
       style={phonemboard}
     >
-      {label}
+      {phonemName}
     </div>
   );
 };

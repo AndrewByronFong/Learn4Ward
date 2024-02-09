@@ -19,7 +19,7 @@ function Login() {
         // temporarily login with "admin" and "admin"
         if (username === 'admin' && password === 'admin') {
             console.log('Login successful!');
-            navigate('/dashboard');
+            navigate('/phonemdashboard');
         } else {
             setError('Login failed: Invalid username or password');
         }

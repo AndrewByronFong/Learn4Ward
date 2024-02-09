@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import AppBar from '../components/ResponsiveAppbar';
-import PhonemBoard from '../components/PhonemBoard';
+import GraphemeBoard from '../components/GraphemeBoard';
 import '../styles/Dashboard.css';
 
-function Dashboard() {
+function GraphemeDashboard() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogout = () => {
@@ -14,10 +14,10 @@ function Dashboard() {
     <>
       <div className="Home">
         <AppBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-        <PhonemBoard />
+        <GraphemeBoard />
       </div>
     </>
   );
 }
 
-export default Dashboard;
+export default GraphemeDashboard;
