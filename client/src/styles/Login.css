@@ -1,33 +1,26 @@
-
-.background {
-    background-color: #aaddac;
+.login {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    border-radius: 10px;
 }
 
 .form {
-    font-size: 14px;
-}
-
-.header {
-    font-size: 30px;
-    margin-bottom: 10%;
-}
-
-label {
     display: flex;
     flex-direction: column;
-    text-align: left;
-    font-size: 21px;
+    align-items: stretch;
+    gap: 10%;
+}
+
+.background {
+    background-color: #aaddac;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 input {
-    margin-top: 10px;
-    border: 2px solid #f4f4f4;
-    border-radius: 4px;
+    padding: 5%;
+    border-radius: 5px;
 }
 
 .error-message {

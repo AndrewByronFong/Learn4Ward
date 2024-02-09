@@ -1,0 +1,5 @@
+CFLAGS = -Wall -std=gnu++20
+%: %.cpp
+	g++ $(CFLAGS) $< -o $(basename $@)
+	./$(basename $@) < input.in
+	rm $(basename $@)

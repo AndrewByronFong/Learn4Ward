@@ -1,20 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import '../styles/components/PhonemBoard.css';
-import PhonemButton from './PhonemButton';
+import PhonemButton from '../components/PhonemButton';
 
-const Phonemboard = () => {
-  // hard coded phonem data, later use api call for this
+const PhonemBoard = () => {
   const phonemData = useMemo(() => [
+    { label: 'A', soundFile: 'B.m4a' },
     { label: 'B', soundFile: 'B.m4a' },
-    { label: 'D', soundFile: 'D.m4a' },
-    { label: 'F', soundFile: 'F.m4a' },
-    { label: 'G', soundFile: 'G.m4a' },
-    { label: 'H', soundFile: 'H.m4a' },
-    { label: 'K', soundFile: 'K.m4a' },
-    { label: 'L', soundFile: 'L.m4a' },
-    { label: 'M', soundFile: 'M.m4a' },
-    { label: 'N', soundFile: 'N.m4a' },
-    { label: 'P', soundFile: 'P.m4a' },
+    { label: 'C', soundFile: 'B.m4a' },
+    { label: 'D', soundFile: 'B.m4a' },
+    { label: 'E', soundFile: 'B.m4a' },
+    { label: 'F', soundFile: 'B.m4a' },
+    // Add more phonem data
   ], []);
 
   const [phonemButtons, setPhonemButtons] = useState([]);
@@ -22,12 +17,11 @@ const Phonemboard = () => {
   useEffect(() => {
     const buttons = phonemData.map((data, index) => {
       const angle = (index / phonemData.length) * 2 * Math.PI;
-      const x = 500 * Math.cos(angle);
-      const y = 500 * Math.sin(angle);
+      const x = 100 * Math.cos(angle);
+      const y = 100 * Math.sin(angle);
 
       return (
         <PhonemButton
-          key={index}
           label={data.label}
           soundFile={data.soundFile}
           x={x}
@@ -45,6 +39,5 @@ const Phonemboard = () => {
     </div>
   );
 };
-//later: make API call to populate the unlocked modules, and pass the audio file name as a prop for each phonem button
 
-export default Phonemboard;
+export default PhonemBoard;
