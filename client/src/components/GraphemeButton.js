@@ -29,7 +29,9 @@ const GraphemeButton = ({ graphemeName, soundFile, x, y }) => {
       onMouseLeave={handleMouseLeave}
       style={phonemboard}
     >
-      {graphemeName}
+      <h1>
+        {graphemeName}
+      </h1>
     </div>
   );
 };

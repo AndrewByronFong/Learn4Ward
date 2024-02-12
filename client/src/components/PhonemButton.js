@@ -29,7 +29,9 @@ const PhonemButton = ({ phonemName, soundFile, x, y }) => {
       onMouseLeave={handleMouseLeave}
       style={phonemboard}
     >
-      {phonemName}
+      <h1>
+        {phonemName}
+      </h1>
     </div>
   );
 };

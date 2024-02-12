@@ -1,5 +1,3 @@
-/* ResponsiveAppbar.css */
-
 @font-face {
     font-family: 'MuseoSans500';
     src: url('../../fonts/LexendDeca-VariableFont_wght.ttf') format('opentype');
@@ -12,6 +10,7 @@
     animation: rotateLogo 20s linear infinite; /* Rotate continuously over 5 seconds, adjust as needed */
 }
 
+/*
 @keyframes rotateLogo {
     from {
         transform: rotate(0deg);
@@ -20,6 +19,7 @@
         transform: rotate(360deg);
     }
 }
+*/
 
 .appbar-container {
     display: flex;
@@ -40,4 +40,8 @@
 
 .divider {
     flex-grow: 1;
+}
+
+.button-text {
+    font-family: 'LexendDeca', sans-serif;
 }

@@ -18,7 +18,8 @@ const GraphemeBoard = () => {
         N: { n: 'N', nn: 'N', kn: 'N', gn: 'N', pm: 'N', mn: 'N' },
         P: { p: 'P', pp: 'P' },
         R: { r: 'R', rr: 'R', wr: 'R', rh: 'R' },
-        A: { a: 'a'}
+        A: { a: 'a'},
+        S: { s: 'S', ss: 'S', c: 'S', sc: 'S', ps: 'S', st: 'S', ce: 'S', se: 'S' }
     }), []);
 
     const [graphemeButtons, setGraphemeButtons] = useState([]);
@@ -27,8 +28,8 @@ const GraphemeBoard = () => {
         if (graphemeData[phonemName]) {
             const buttons = Object.entries(graphemeData[phonemName]).map(([graphemeName, soundFile], index) => {
                 const angle = (index / Object.keys(graphemeData[phonemName]).length)*2*Math.PI;
-                const x = 400 * Math.cos(angle);
-                const y = 400 * Math.sin(angle)+700;
+                const x = 300 * Math.cos(angle);
+                const y = 300 * Math.sin(angle)+300;
 
                 return (
                     <GraphemeButton

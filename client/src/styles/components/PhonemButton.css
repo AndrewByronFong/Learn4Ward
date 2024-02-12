@@ -1,18 +1,19 @@
 .phonem-button {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: #aaddac;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(170, 221, 172, 0.8);
   border-radius: 50%;
   text-align: center;
-  line-height: 50px;
+  line-height: 65px;
   color: #ffffff;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .phonem-button:hover {
-  transform: scale(1.1);
-  background-color: #45a049;
+  background-color: rgba(69, 160, 73, 0.8); /* Adjusted hover color for a glassy effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
 }

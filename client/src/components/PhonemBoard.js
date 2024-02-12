@@ -15,6 +15,7 @@ const PhonemBoard = () => {
     { label: 'P' },
     { label: 'R' },
     { label: 'A' },
+    { label: 'S' },
   ], []);
 
   const [phonemButtons, setPhonemButtons] = useState([]);
@@ -22,8 +23,8 @@ const PhonemBoard = () => {
   useEffect(() => {
     const buttons = phonemData.map((data, index) => {
       const angle = (index / phonemData.length) * 2 * Math.PI;
-      const x = 400 * Math.cos(angle);
-      const y = 400 * Math.sin(angle)+700;
+      const x = 300 * Math.cos(angle);
+      const y = 300 * Math.sin(angle)+300;
       return (
         <PhonemButton
           phonemName={data.label}

@@ -25,7 +25,7 @@ const GraphemeModule = () => {
     };
 
     const fetchAudio = async () => {
-      const phonem = {soundFile};
+      const phonem = { soundFile };
       const domain = ''; // change this based on backend URL
       const endpoint = `${domain}/phonem/${phonem}`;
       try {
@@ -80,7 +80,7 @@ const GraphemeModule = () => {
   };
 
   const sendAudio = async (base64encode) => {
-    const phonem = {audioFile};
+    const phonem = { audioFile };
     const domain = ''; // change this based on backend URL
     const endpoint = `${domain}/phoneme/compare/${phonem}`;
     try {
@@ -110,7 +110,7 @@ const GraphemeModule = () => {
   const base64toM4A = (base64encoding, contentType) => {
     const byteChar = atob(base64encoding);
     const byteArrays = [];
-  
+
     for (let offset = 0; offset < byteChar.length; offset += 128) {
       const slice = byteChar.slice(offset, offset + 128);
       const byteArr = new Uint8Array(
@@ -118,33 +118,37 @@ const GraphemeModule = () => {
       );
       byteArrays.push(byteArr);
     }
-  
+
     return new Blob(byteArrays, { type: contentType });
   };
-  
+
 
   return (
-    <>
+    <div>
       <AppBar showButtons={false} />
 
-      <div className="container">
-        {stream && (
-          <div className="left-side">
-            <Webcam
-              style={{ width: "100%", height: "100%" }}
-              ref={webcamRef}
-            />
-          </div>
-        )}
+      <div className="outer-container">
+        <div className="container">
+          {stream && (
+            <div className="left-side">
+              <Webcam
+                style={{ width: "100%", height: "100%" }}
+                ref={webcamRef}
+              />
+            </div>
+          )}
 
-        <div className="right-side">
+          <div className="right-side">
+          </div>
+        </div>
+        <div className="buttons-container">
           <button onClick={playSound}>{graphemeName}</button>
           <button onClick={recording ? stopRecording : startRecording}>
-            {recording ? 'STOP RECORDING' : 'START RECORDING'}
+            {recording ? 'stop' : 'record'}
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

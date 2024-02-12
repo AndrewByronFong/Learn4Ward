@@ -15,27 +15,36 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" className="appbar-container transparent">
+    <AppBar position="static" className={`appbar-container ${location.pathname === '/' ? 'transparent' : ''}`}>
       <Stack
         display="flex"
         direction="row"
         padding="10px"
         spacing={2}
-        justifyContent="start"
+        justifyContent="space-between"
         alignItems="center"
       >
-        <img
-          src="/Learn4Ward_logo.png"
-          alt="Logo"
-          onClick={handleLogoClick}
-          className="logo"
-        />
-        <ScramblingText onClick={handleLogoClick} text="Learn4Ward" className="logo-title" />
-        <div className='divider'></div>
+        {location.pathname !== '/' && (
+          <>
+            <Stack direction="row" alignItems="center">
+              <img
+                src="/new_icon.png"
+                alt="Logo"
+                onClick={handleLogoClick}
+                className="logo"
+              />
+              <ScramblingText onClick={handleLogoClick} text="Learn4Ward" className="logo-title" />
+              <div className='divider'></div>
+            </Stack>
+          </>
+        )}
         {location.pathname === '/' && (
           <>
-            <ReusableButton text="Sign Up" to="/signup" />
-            <ReusableButton text="Login" to="/login" />
+            <ScramblingText onClick={handleLogoClick} text="Learn4Ward" className="logo-title" />
+            <Stack direction="row" flex={1} justifyContent="flex-end">
+              <ReusableButton text="Sign Up" to="/signup" />
+              <ReusableButton text="Login" to="/login" />
+            </Stack>
           </>
         )}
       </Stack>
