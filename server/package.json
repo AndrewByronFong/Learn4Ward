@@ -1,26 +1,24 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2"
-=======
   "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js ",
+    "tunnel": "node server.js & npx lt --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "child_process": "^1.0.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
+    "localtunnel": "^2.0.2",
     "mongoose": "^8.1.1",
     "morgan": "^1.10.0"
->>>>>>> 1341eb02da0c8590f1feb6f0916854ca353625b6
   }
 }
