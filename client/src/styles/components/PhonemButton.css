@@ -10,10 +10,10 @@
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .phonem-button:hover {
-  background-color: rgba(69, 160, 73, 0.8); /* Adjusted hover color for a glassy effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  background-color: rgba(69, 160, 73, 0.8);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }

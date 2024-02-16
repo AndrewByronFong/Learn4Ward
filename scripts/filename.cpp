@@ -14,7 +14,7 @@ int main() {
 
     string r = s+": { ";
     for(auto w:v){
-        r+=(w+": '"+w+".m4a', ");
+        r+=(w+": '"+s+".m4a', ");
     }
     r=r.substr(0, r.length()-2);
     r+=" },";

@@ -8,7 +8,7 @@ const GraphemeBoard = () => {
 
     // Hard-coded grapheme data, later use API call for this
     const graphemeData = useMemo(() => ({
-        B: { b: 'B', bb: 'B' },
+        B: { b: "B", bb: 'B' },
         D: { d: 'D', dd: 'D', ed: 'D' },
         F: { f: 'F', ff: 'F', ph: 'F', gh: 'F', lf: 'F', ft: 'F' },
         G: { g: 'G' },
@@ -18,7 +18,7 @@ const GraphemeBoard = () => {
         N: { n: 'N', nn: 'N', kn: 'N', gn: 'N', pm: 'N', mn: 'N' },
         P: { p: 'P', pp: 'P' },
         R: { r: 'R', rr: 'R', wr: 'R', rh: 'R' },
-        A: { a: 'a'},
+        A: { a: "a"},
         S: { s: 'S', ss: 'S', c: 'S', sc: 'S', ps: 'S', st: 'S', ce: 'S', se: 'S' }
     }), []);
 
@@ -30,6 +30,8 @@ const GraphemeBoard = () => {
                 const angle = (index / Object.keys(graphemeData[phonemName]).length)*2*Math.PI;
                 const x = 300 * Math.cos(angle);
                 const y = 300 * Math.sin(angle)+300;
+                console.log(graphemeName);
+                console.log(soundFile);
 
                 return (
                     <GraphemeButton
