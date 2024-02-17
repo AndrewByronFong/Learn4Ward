@@ -12,6 +12,8 @@ const GraphemeModule = () => {
   const [recording, setRecording] = useState(false);
   const [audioFile, setAudioFile] = useState(null);
   const [videoFile, setVideoFile] = useState(null);
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [audioReceived, setAudioReceived] = useState(false);
   const [retry, setRetry] = useState(0);
   const webcamRef = useRef(null);
@@ -25,7 +27,10 @@ const GraphemeModule = () => {
   useEffect(() => {
     const initializeWebcam = async () => {
       try {
-        const userStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        const userStream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true,
+        });
         setStream(userStream);
       } catch (error) {
         console.error("Error accessing webcam:", error);
@@ -33,41 +38,52 @@ const GraphemeModule = () => {
     };
 
     const fetchAudio = async () => {
-      console.log('fetching audio');
+      console.log("fetching audio");
       setRetry(retry + 1);
-      const domain = 'https://four-chefs-kick.loca.lt';
+      const domain = window.location.origin;
       const endpoint = `${domain}/phoneme/${soundFile}`;
       try {
         const response = await axios.get(endpoint);
         const base64encoding = response.data;
-        console.log(base64encoding);
-        const audioBlob = base64toM4A(base64encoding, 'audio/m4a');
+        const audioBlob = base64toM4A(base64encoding, "audio/m4a");
         const audioFileName = `${soundFile}.m4a`;
-        const audioFile = new File([audioBlob], audioFileName, { type: 'audio/m4a' });
+        const audioFile = new File([audioBlob], audioFileName, {
+          type: "audio/m4a",
+        });
         setAudioFile(audioFile);
         setAudioReceived(true);
       } catch (error) {
-        console.error('Error fetching audio:', error);
-      }
-    }
-
-    const fetchVideo = async () => {
-      console.log('fetching video');
-      const domain = 'https://four-chefs-kick.loca.lt';
-      const videoEndpoint = `${domain}/phoneme/combined/${soundFile}`;
-      try {
-        const response = await axios.get(videoEndpoint);
-        const combinedBase64encoding = response.data;
-        console.log(combinedBase64encoding);
-
-        // Set videoFile state with the combined video (audio and video) data
-        setVideoFile(base64toBlob(combinedBase64encoding, 'video/mp4'));
-      } catch (error) {
-        console.error('Error fetching video:', error);
+        console.error("Error fetching audio:", error);
       }
     };
 
-    if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+    const fetchVideo = async () => {
+      console.log("fetching video");
+      const domain = window.location.origin;
+      const videoEndpoint = `${domain}/phoneme/video/${soundFile}`;
+      try {
+        const response = await axios.get(videoEndpoint);
+        const combinedBase64encoding = response.data;
+
+        setVideoFile(base64toBlob(combinedBase64encoding, "video/mp4"));
+      } catch (error) {
+        console.error("Error fetching video:", error);
+      }
+    };
+
+    if (videoFile) {
+      const newVideoUrl = URL.createObjectURL(videoFile);
+      setVideoUrl(newVideoUrl);
+
+      // Cleanup blob URL on component unmount or videoFile change
+      return () => {
+        URL.revokeObjectURL(newVideoUrl);
+      };
+    }
+    if (
+      "mediaDevices" in navigator &&
+      "getUserMedia" in navigator.mediaDevices
+    ) {
       initializeWebcam();
     }
 
@@ -81,7 +97,7 @@ const GraphemeModule = () => {
         stream.getTracks().forEach((track) => track.stop());
       }
     };
-  }, [soundFile, stream, audioReceived, setRetry, retry]);
+  }, [soundFile, stream, audioReceived, setRetry, retry, videoFile]);
 
   const startRecording = () => {
     const audioStream = stream.clone();
@@ -94,10 +110,10 @@ const GraphemeModule = () => {
     };
 
     mediaRecorder.onstop = () => {
-      const audioBlob = new Blob(audioChunks, { type: 'audio/m4a' });
+      const audioBlob = new Blob(audioChunks, { type: "audio/m4a" });
       const reader = new FileReader();
       reader.onloadend = () => {
-        const base64encode = reader.result.split(',')[1];
+        const base64encode = reader.result.split(",")[1];
         sendAudio(base64encode);
         setAudioChunks([]);
       };
@@ -111,20 +127,23 @@ const GraphemeModule = () => {
 
   const sendAudio = async (base64encode) => {
     const phonem = { audioFile };
-    const domain = 'https://loose-poems-doubt.loca.lt'; //change this based on backend URL
+    const domain = window.location.origin; //change this based on backend URL
     const endpoint = `${domain}/phoneme/compare/${phonem}`;
     try {
       const response = await axios.post(endpoint, {
         soundIn64: base64encode,
       });
-      console.log('Audio base-64 encoding successfully sent:', response.data);
+      console.log("Audio base-64 encoding successfully sent:", response.data);
     } catch (error) {
-      console.log('Error sending audio base-64 encoding:', error);
+      console.log("Error sending audio base-64 encoding:", error);
     }
-  }
+  };
 
   const stopRecording = () => {
-    if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
+    if (
+      mediaRecorderRef.current &&
+      mediaRecorderRef.current.state === "recording"
+    ) {
       mediaRecorderRef.current.stop();
       setRecording(false);
     }
@@ -137,6 +156,15 @@ const GraphemeModule = () => {
     }
   };
 
+  const playVideo = () => {
+    setIsVideoPlaying(true);
+  };
+
+  // Function to stop the video
+  const stopVideo = () => {
+    setIsVideoPlaying(false);
+  };
+
   const base64toM4A = (base64encoding, contentType) => {
     const byteChar = atob(base64encoding);
     const byteArrays = [];
@@ -144,7 +172,7 @@ const GraphemeModule = () => {
     for (let offset = 0; offset < byteChar.length; offset += 128) {
       const slice = byteChar.slice(offset, offset + 128);
       const byteArr = new Uint8Array(
-        Array.from(slice, char => char.charCodeAt(0))
+        Array.from(slice, (char) => char.charCodeAt(0))
       );
       byteArrays.push(byteArr);
     }
@@ -156,15 +184,20 @@ const GraphemeModule = () => {
     const byteChar = atob(base64encoding);
     const byteArrays = [];
 
-    for(let offset = 0; offset < byteChar.length; offset += 128) {
+    for (let offset = 0; offset < byteChar.length; offset += 128) {
       const slice = byteChar.slice(offset, offset + 128);
       const byteArr = new Uint8Array(
-        Array.from(slice, char => char.charCodeAt(0))
+        Array.from(slice, (char) => char.charCodeAt(0))
       );
       byteArrays.push(byteArr);
     }
 
     return new Blob(byteArrays, { type: contentType });
+  };
+
+  const handleButtonClick = () => {
+    playSound();
+    playVideo();
   };
 
   return (
@@ -183,21 +216,22 @@ const GraphemeModule = () => {
           )}
 
           <div className="right-side">
-            {videoFile && (
+            {videoUrl && (
               <ReactPlayer
-                url={URL.createObjectURL(videoFile)}
+                url={videoUrl}
                 controls
-                playing={recording}
+                playing={isVideoPlaying}
                 width="100%"
                 height="100%"
+                onEnded={stopVideo}
               />
             )}
           </div>
         </div>
         <div className="buttons-container">
-          <button onClick={playSound}>{graphemeName}</button>
+          <button onClick={handleButtonClick}>{graphemeName}</button>
           <button onClick={recording ? stopRecording : startRecording}>
-            {recording ? 'stop' : 'record'}
+            {recording ? "stop" : "record"}
           </button>
         </div>
       </div>

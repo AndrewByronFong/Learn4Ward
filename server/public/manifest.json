@@ -1,0 +1,15 @@
+{
+  "short_name": "Learn4Ward",
+  "name": "Learn4Ward AI Modules for Dyslexia",
+  "icons": [
+    {
+      "src": "Learn4ward_logo.png",
+      "type": "image/png",
+      "sizes": "750x750"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

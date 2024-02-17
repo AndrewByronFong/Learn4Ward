@@ -1,0 +1,14 @@
+{
+  "name": "dyslexiaapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+	"dev": "npm start --prefix server & npm start --prefix client",
+	"install": "npm install --prefix client & npm install --prefix server",
+	"start": "npm run build --prefix client && npm start --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
